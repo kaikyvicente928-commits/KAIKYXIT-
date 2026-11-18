@@ -1,0 +1,152 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KAIKYXIT</title>
+<style>
+*{box-sizing:border-box}
+body{
+ margin:0;min-height:100vh;display:flex;
+ align-items:center;justify-content:center;
+ padding:15px;color:white;font-family:Arial;
+ background:radial-gradient(circle,#321018,#08090d 70%);
+}
+.app{
+ width:100%;max-width:410px;
+ background:#0d0e14;border:1px solid #63202c;
+ border-radius:18px;overflow:hidden;
+ box-shadow:0 0 35px #ff263833;
+}
+header{
+ text-align:center;padding:24px;
+ background:linear-gradient(120deg,#301018,#11121a);
+ border-bottom:1px solid #292b36;
+}
+header small{color:#ff6878;letter-spacing:4px}
+header h1{margin:9px 0 0;font-size:30px}
+header span{color:#ff2638}
+main{padding:20px}
+h2{text-align:center;font-size:18px}
+.sub{text-align:center;color:#999;font-size:12px}
+input{
+ width:100%;padding:14px;margin:15px 0;
+ background:#090a0f;border:1px solid #393944;
+ border-radius:9px;color:white;
+}
+button{
+ cursor:pointer;border:0;border-radius:9px;
+ color:white;font-weight:bold;padding:14px;
+ background:linear-gradient(100deg,#ff2638,#a90020);
+}
+.login button{width:100%}
+.hidden{display:none}
+.status{text-align:center;color:#55e68a;font-size:11px;margin:15px}
+.card{
+ display:flex;align-items:center;gap:12px;
+ background:#191a22;border:1px solid #30313c;
+ border-radius:11px;padding:13px;margin:10px 0;
+}
+.symbol{
+ width:40px;height:40px;display:grid;
+ place-items:center;border-radius:9px;
+ background:#39131c;color:#ff596b;font-size:20px;
+}
+.info{flex:1}
+.info b{font-size:13px}
+.info p{font-size:10px;color:#999;margin:5px 0 0}
+.toggle{
+ width:42px;height:23px;padding:3px;
+ background:#444;border-radius:20px;
+}
+.toggle:after{
+ content:"";display:block;width:17px;height:17px;
+ border-radius:50%;background:white;transition:.2s;
+}
+.toggle.active{background:#168b50}
+.toggle.active:after{transform:translateX(19px)}
+.launch{width:100%;margin-top:15px;padding:16px}
+.note{text-align:center;color:#777;font-size:10px;margin-top:16px}
+#msg{text-align:center;color:#79e9a0;font-size:11px;margin-top:10px}
+</style>
+</head>
+<body>
+<div class="app">
+<header>
+<small>PAINEL GAMER</small>
+<h1>KAIKY<span>XIT</span></h1>
+</header>
+<main>
+
+<section id="login" class="login">
+<h2>ACESSO AO PAINEL</h2>
+<p class="sub">Digite sua chave para continuar</p>
+<input id="key" type="password" placeholder="Digite sua key">
+<button onclick="entrar()">ENTRAR</button>
+<p id="erro" class="sub"></p>
+</section>
+
+<section id="painel" class="hidden">
+<h2>PAINEL KAIKYXIT</h2>
+<p class="sub">CONFIGURAÇÕES VISUAIS</p>
+<div class="status">● SISTEMA ONLINE</div>
+
+<div class="card">
+<div class="symbol">◎</div>
+<div class="info"><b>Aimbot Legit</b><p>Opção visual demonstrativa</p></div>
+<button class="toggle" onclick="alternar(this)"></button>
+</div>
+
+<div class="card">
+<div class="symbol">ϟ</div>
+<div class="info"><b>Reduzir Lags</b><p>Opção visual demonstrativa</p></div>
+<button class="toggle" onclick="alternar(this)"></button>
+</div>
+
+<div class="card">
+<div class="symbol">⌖</div>
+<div class="info"><b>Melhorar Mira 2X</b><p>Preferência visual</p></div>
+<button class="toggle" onclick="alternar(this)"></button>
+</div>
+
+<div class="card">
+<div class="symbol">⚡</div>
+<div class="info"><b>Desempenho</b><p>Opção visual demonstrativa</p></div>
+<button class="toggle" onclick="alternar(this)"></button>
+</div>
+
+<button class="launch" onclick="abrirFreeFire()">
+ABRIR FREE FIRE
+</button>
+
+<div id="msg"></div>
+<p class="note">KAIKYXIT • PAINEL GAMER</p>
+</section>
+
+</main>
+</div>
+
+<script>
+function entrar(){
+ const key=document.getElementById("key").value;
+ if(!key){
+  document.getElementById("erro").textContent="Digite uma key.";
+  return;
+ }
+ document.getElementById("login").classList.add("hidden");
+ document.getElementById("painel").classList.remove("hidden");
+}
+
+function alternar(botao){
+ botao.classList.toggle("active");
+}
+
+function abrirFreeFire(){
+ document.getElementById("msg").textContent="Abrindo Google Play Store...";
+ window.location.href=
+ "https://play.google.com/store/apps/details?id=com.dts.freefireth";
+}
+</script>
+</body>
+</html>
